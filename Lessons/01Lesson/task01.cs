@@ -17,7 +17,6 @@ namespace Lessons._01Lesson
         public void TestFunc(int n)
         {
             int d = 0;
-            //int i = 2;
 
             for (int i = 2; i < n; i++)
             {

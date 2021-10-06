@@ -1,4 +1,5 @@
 ﻿using System;
+using Lessons._01Lesson;
 
 namespace Lessons
 {
@@ -6,7 +7,7 @@ namespace Lessons
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new Tasks_01lesson();
         }
     }
 }
