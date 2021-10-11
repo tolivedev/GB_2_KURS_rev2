@@ -68,7 +68,7 @@ namespace Lessons._03Lesson
         [Benchmark(Description = "Класс с данными float")]
         public void TestPointDFloatClass()
         {
-            for (int i = 0, j = pC.Length - 1; i < pC.Length && i != j; i++, j--)
+            for (int i = 0, j = size - 1; i < size && i != j; i++, j--)
             {
                 PointDistance(pC[i], pC[j]);
             }
@@ -76,7 +76,7 @@ namespace Lessons._03Lesson
         [Benchmark(Description = "Структура с данными float")]
         public void TestPointDFLoatStruct()
         {
-            for (int i = 0, j = pS.Length - 1; i < pS.Length && i != j; i++, j--)
+            for (int i = 0, j = size - 1; i < size && i != j; i++, j--)
             {
                 PointDistance(pS[i], pS[j]);
             }
@@ -84,7 +84,7 @@ namespace Lessons._03Lesson
         [Benchmark(Description = "Структура с данными double")]
         public void TestPointDDoubleStruct()
         {
-            for (int i = 0, j = psD.Length - 1; i < psD.Length && i != j; i++, j--)
+            for (int i = 0, j = size - 1; i < size && i != j; i++, j--)
             {
                 PointDistanceDouble(psD[i], psD[i]);
             }
@@ -92,7 +92,7 @@ namespace Lessons._03Lesson
         [Benchmark(Description = "Структура с данными float без корня")]
         public void TestPointDFloatStructWhithoutSQRT()
         {
-            for (int i = 0, j = pS.Length - 1; i < pS.Length && i != j; i++, j--)
+            for (int i = 0, j = size - 1; i < size && i != j; i++, j--)
             {
                 PointDistanceWithoutSqrt(pS[i], pS[i]);
             }
