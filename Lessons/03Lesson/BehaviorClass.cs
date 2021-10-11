@@ -15,7 +15,9 @@ namespace Lessons._03Lesson
             InitArrays();
         }
 
-        static int size = 100;
+        static readonly int size = 100_000;
+        
+        // не совсем понял почему, но инициализация размера массива экземплярным значением недопустима, требует статическое поле
         public PointClass[] pC = new PointClass[size];
         public PointStruct[] pS = new PointStruct[size];
         public PointStructDouble[] psD = new PointStructDouble[size];

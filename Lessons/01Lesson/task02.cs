@@ -12,8 +12,8 @@ namespace Lessons._01Lesson
         {
             StrangeSum(1, 2, 3, 4);
         }
-
-        public static int StrangeSum(params int[] inputArray)
+        // fix. del static
+        public int StrangeSum(params int[] inputArray)
         {
             int sum = 0; // O(1)
             for (int i = 0; i < inputArray.Length; i++) // O(N)
