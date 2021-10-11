@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BenchmarkDotNet.Attributes;
 
 namespace Lessons._03Lesson
 {
@@ -21,7 +22,7 @@ namespace Lessons._03Lesson
 
 
 
-        public void InitArrays()
+        void InitArrays()
         {
             for (int i = 0; i < size; i++)
             {
@@ -33,7 +34,7 @@ namespace Lessons._03Lesson
             Thread.Sleep(2000);
         }
 
-        public float PointDistance(PointClass pointOne, PointClass pointTwo)
+        float PointDistance(PointClass pointOne, PointClass pointTwo)
         {
             float x = pointOne.X - pointTwo.X;
             float y = pointOne.Y - pointTwo.Y;
@@ -41,14 +42,14 @@ namespace Lessons._03Lesson
         }
 
 
-        public float PointDistance(PointStruct pointOne, PointStruct pointTwo)
+        float PointDistance(PointStruct pointOne, PointStruct pointTwo)
         {
             float x = pointOne.X - pointTwo.X;
             float y = pointOne.Y - pointTwo.Y;
             return MathF.Sqrt((x * x) + (y * y));
         }
 
-        public double PointDistanceDouble(PointStructDouble pointOne, PointStructDouble pointTwo)
+        double PointDistanceDouble(PointStructDouble pointOne, PointStructDouble pointTwo)
         {
             double x = pointOne.X - pointTwo.X;
             double y = pointOne.Y - pointTwo.Y;
@@ -56,7 +57,7 @@ namespace Lessons._03Lesson
         }
 
 
-        public float PointDistanceWithoutSqrt(PointStruct pointOne, PointStruct pointTwo)
+        float PointDistanceWithoutSqrt(PointStruct pointOne, PointStruct pointTwo)
         {
             float x = pointOne.X - pointTwo.X;
             float y = pointOne.Y - pointTwo.Y;
