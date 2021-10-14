@@ -69,7 +69,8 @@ namespace Lessons
 
             //new Lesson02();
 
-            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+            //BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+            BenchmarkRunner.Run<BehaviorClass>();
 
         }
     }

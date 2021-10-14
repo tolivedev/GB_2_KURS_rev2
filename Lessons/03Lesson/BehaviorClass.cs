@@ -8,6 +8,8 @@ using BenchmarkDotNet.Attributes;
 
 namespace Lessons._03Lesson
 {
+    [MemoryDiagnoser]
+    [RankColumn]
     public class BehaviorClass
     {
         public BehaviorClass()
