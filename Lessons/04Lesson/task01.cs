@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -12,17 +13,25 @@ namespace Lessons._04Lesson
         public task01()
         {
             SIZE = 10_000;
+            InitSequences();
+            Performance();
         }
-
-        public task01(int size)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="size">Размер наборов</param>
+        /// <param name="desVal">Искомое значение</param>
+        public task01(int size, string desVal)
         {
             this.SIZE = size;
-            //arrStr = new string[SIZE];
+            this.desiredValue = desVal;
+
         }
-        private string[] arrStr = null;// = new string[SIZE];
+        private string[] arrStr = null;
         readonly int SIZE;
         readonly HashSet<string> hs = new();
-
+        Stopwatch sw = new();
+        string desiredValue = default;
 
         public void InitSequences()
         {
@@ -34,8 +43,58 @@ namespace Lessons._04Lesson
                 arrStr[i] = tmp;
                 hs.Add(tmp);
 
+                if (i == 4999)
+                {
+                    desiredValue = arrStr[i];
+                }
+
             }
             Thread.Sleep(500);
+        }
+
+
+        private void Performance()
+        {
+
+            sw.Start();
+            //int i = 0;
+            //while (arrStr[i] != desiredValue)
+            //{
+            //    i++;
+            //}
+
+            for (int i = 0; i < SIZE; i++)
+            {
+                if (arrStr[i] != desiredValue && SIZE - 1 == i)
+                {
+                    Console.WriteLine("Искомый элемент не найден в массиве");
+                    break;
+                }
+                else if(arrStr[i] == desiredValue)
+                {
+                    Console.WriteLine($"Элемент {desiredValue}  найден в Массиве");
+                    break;
+                }
+                
+            }
+            sw.Stop();
+            Console.WriteLine("Затрачено на поиск в массиве {0}", sw.ElapsedMilliseconds);
+            sw.Reset();
+
+            sw.Start();
+            if (hs.Contains(desiredValue))
+            {
+                Console.WriteLine($"Элемент {desiredValue}  найден в HashSet");
+            }
+            else
+            {
+                Console.WriteLine("Нет совпадения по искомому значению");
+            }
+            sw.Stop();
+            Console.WriteLine("Затрачено на поиск в HashSet {0}", sw.ElapsedMilliseconds);
+            sw.Reset();
+
+
         }
     }
 }

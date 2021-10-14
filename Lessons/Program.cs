@@ -1,9 +1,10 @@
 ﻿using System;
-using Lessons._01Lesson;
-using Lessons._02Lesson;
+//using Lessons._01Lesson;
+//using Lessons._02Lesson;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
-using Lessons._03Lesson;
+//using Lessons._03Lesson;
+using Lessons._04Lesson;
 
 namespace Lessons
 {
@@ -69,8 +70,9 @@ namespace Lessons
 
             //new Lesson02();
 
-            //BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
-            BenchmarkRunner.Run<BehaviorClass>();
+            //BenchmarkRunner.Run<BehaviorClass>();
+
+            new task01();
 
         }
     }
