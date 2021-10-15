@@ -10,11 +10,11 @@ namespace Lessons._04Lesson
 {
     class task01
     {
-        public task01()
+
+        public task01() : this(size: 10_000, string.Empty)
         {
-            SIZE = 10_000;
-            InitSequences();
-            Performance();
+            //SIZE = 10_000;
+   
         }
         /// <summary>
         /// 
@@ -25,6 +25,9 @@ namespace Lessons._04Lesson
         {
             this.SIZE = size;
             this.desiredValue = desVal;
+
+            InitSequences();
+            Performance();
 
         }
         private string[] arrStr = null;
@@ -78,7 +81,7 @@ namespace Lessons._04Lesson
                 
             }
             sw.Stop();
-            Console.WriteLine("Затрачено на поиск в массиве {0}", sw.ElapsedMilliseconds);
+            Console.WriteLine("Затрачено на поиск в массиве {0}", sw.Elapsed.ToString("mm\\:ss\\.fffffff"));
             sw.Reset();
 
             sw.Start();
@@ -91,7 +94,7 @@ namespace Lessons._04Lesson
                 Console.WriteLine("Нет совпадения по искомому значению");
             }
             sw.Stop();
-            Console.WriteLine("Затрачено на поиск в HashSet {0}", sw.ElapsedMilliseconds);
+            Console.WriteLine("Затрачено на поиск в HashSet {0}", sw.Elapsed.ToString("mm\\:ss\\.fffffff"));
             sw.Reset();
 
 
