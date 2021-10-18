@@ -11,7 +11,7 @@ namespace Lessons._04Lesson
     class task01
     {
 
-        public task01() : this(size: 10_000, string.Empty)
+        public task01() : this(size: 10_000, desVal: string.Empty)
         {
             //SIZE = 10_000;
    

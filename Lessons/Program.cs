@@ -1,10 +1,11 @@
 ﻿using System;
 //using Lessons._01Lesson;
 //using Lessons._02Lesson;
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
+//using BenchmarkDotNet.Attributes;
+//using BenchmarkDotNet.Running;
 //using Lessons._03Lesson;
-using Lessons._04Lesson;
+//using Lessons._04Lesson;
+using Lessons._05Lesson;
 
 namespace Lessons
 {
@@ -68,12 +69,13 @@ namespace Lessons
         {
             //new Tasks_01lesson();
 
-            //new Lesson02();
+            //new Lesson02();   // les02
 
-            //BenchmarkRunner.Run<BehaviorClass>();
+            //BenchmarkRunner.Run<BehaviorClass>(); //  les03
 
-            new task01();
+            //new task01(); // le04
 
+            new task01(); 
         }
     }
 }
