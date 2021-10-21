@@ -73,9 +73,9 @@ namespace Lessons
 
             //BenchmarkRunner.Run<BehaviorClass>(); //  les03
 
-            //new task01(); // le04
+            new _04Lesson.Lesson04(); // le04
 
-            new task01(); 
+            //new task01(); 
         }
     }
 }

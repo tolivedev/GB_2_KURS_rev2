@@ -11,35 +11,161 @@ namespace Lessons._04Lesson
 
     }
 
-    public class TreeNode
+    public class TreeNode<T>
     {
-        public int Value { get; set; }
-        public TreeNode LeftChild { get; set; }
-        public TreeNode RightChild { get; set; }
-
-        public override bool Equals(object obj)
+        public TreeNode()
         {
-            var node = obj as TreeNode;
 
-            if (node == null)
-                return false;
+        }
+        public TreeNode(T value)
+        {
+            this.Value = value;
+        }
+        public T Value { get; set; }
+        public TreeNode<T> LeftChild { get; set; }
+        public TreeNode<T> RightChild { get; set; }
+        public List<TreeNode<T>> vertices { get; set; }
+        public Tree self_Tree { get; set; }
+        public bool Passed { get; set; }
 
-            return node.Value == Value;
+        public TreeNode<T> Parent { get; set; }
+
+        //public override bool Equals(object obj)
+        //{
+        //    var node = obj as TreeNode<T>;
+
+        //    if (node == null)
+        //        return false;
+
+        //    return node.Value == Value;
+        //}
+        public override int GetHashCode()
+        {
+            return GetHashCode();
         }
     }
 
-    public interface ITree
+    public interface ITree<T>
     {
-        TreeNode GetRoot();
+        TreeNode<T> GetRoot();
         void AddItem(int value); // добавить узел
         void RemoveItem(int value); // удалить узел по значению
-        TreeNode GetNodeByValue(int value); //получить узел дерева по значению
+        TreeNode<T> GetNodeByValue(int value); //получить узел дерева по значению
         void PrintTree(); //вывести дерево в консоль
+    }
+
+    public class Tree : ITree<int>
+    {
+        List<TreeNode<int>> lsNode = new();
+        private TreeNode<int> root = null;
+        private TreeNode<int> node = null;
+
+        public void AddItem(int value)
+        {
+            if (root == null)
+            {
+                root = new TreeNode<int>(value)
+                {
+                    Parent = null,
+                    //LeftChild = new TreeNode<int>(),
+                    //RightChild = new(),
+                    Value = value
+                };
+                node = root;
+                lsNode.Add(root);
+                return;
+            }
+            else if (node.LeftChild != null)
+            {
+                node.RightChild = new TreeNode<int>(value);
+                node.RightChild.Parent = root;
+
+            }
+            else
+            {
+                node.LeftChild = new TreeNode<int>(value);
+                root.LeftChild.Parent = root;
+            }
+
+
+            //lsNode.Add()
+            //if (root != null)
+            //{
+            //    if (searchValue != null)
+            //    {
+            //        do
+            //        {
+            //            if (c.Equals(node.Data, searchValue))
+            //            {
+            //                return node;
+            //            }
+            //            node = node.Next;
+            //        } while (node != head);
+            //    }
+            //    else
+            //    {
+            //        do
+            //        {
+            //            if (node.Data == null)
+            //            {
+            //                return node;
+            //            }
+            //            node = node.Next;
+            //        } while (node != head);
+            //    }
+            //}
+
+            //TreeNode newNode = null;
+            //if (value == 0)
+            //    return;
+            //else
+            //{
+            //    var nl = value / 2;
+            //    var nr = value - nl - 1;
+            //    newNode = new TreeNode();
+            //    newNode.Value = new Random().Next();
+            //    newNode.LeftChild = TreeNode(nl);
+            //    newNode.RightChild = TreeNode(nr);
+            //}
+            //return newNode;
+
+
+
+
+        }
+
+        public TreeNode<int> GetNodeByValue(int value)
+        {
+            while (value !=)
+            {
+
+            }
+            return null;
+        }
+
+        public TreeNode<int> GetRoot()
+        {
+            if (node.Parent == null)
+            {
+                return node;
+            }
+            return null;
+        }
+
+        public void PrintTree()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveItem(int value)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public static class TreeHelper
     {
-        public static NodeInfo[] GetTreeInLine(ITree tree)
+        public static NodeInfo[] GetTreeInLine(ITree<int> tree)
         {
             var bufer = new Queue<NodeInfo>();
             var returnArray = new List<NodeInfo>();
@@ -80,7 +206,7 @@ namespace Lessons._04Lesson
     public class NodeInfo
     {
         public int Depth { get; set; }
-        public TreeNode Node { get; set; }
+        public TreeNode<int> Node { get; set; }
     }
 
 }

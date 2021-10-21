@@ -141,37 +141,6 @@ namespace Lessons._02Lesson
         }
 
 
-        //public bool MoveNext()
-        //{
-        //    if (position < count)
-        //    {
-        //        position++;
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-
-        // Установить указатель (position) перед началом набора.
-        //public void Reset()
-        //{
-        //    position = -1;
-        //}
-
-        //public void Dispose()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //// Получить текущий элемент набора. 
-        //public object Current
-        //{
-        //    get { return elementsArray[position]; }
-        //}
-
-        //T IEnumerator<T>.Current => throw new NotImplementedException();
     }
 
 }
