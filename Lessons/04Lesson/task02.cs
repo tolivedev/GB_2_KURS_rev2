@@ -8,7 +8,23 @@ namespace Lessons._04Lesson
 {
     class task02
     {
+        public task02()
+        {
+            trN = new();
+            StartCreateTree();
+        }
+        Tree trN;
 
+        private void StartCreateTree()
+        {
+            trN.AddItem(1);
+            trN.AddItem(2);
+            trN.AddItem(3);
+            trN.AddItem(4);
+            trN.AddItem(5);
+            trN.AddItem(6);
+            trN.AddItem(7);
+        }
     }
 
     public class TreeNode<T>
@@ -24,7 +40,7 @@ namespace Lessons._04Lesson
         public T Value { get; set; }
         public TreeNode<T> LeftChild { get; set; }
         public TreeNode<T> RightChild { get; set; }
-        public List<TreeNode<T>> vertices { get; set; }
+        public List<TreeNode<T>> vertices { get; }  // по идее, ноде дерева список вершин не нужен, только для графа. но потом такой код проще адаптировать
         public Tree self_Tree { get; set; }
         public bool Passed { get; set; }
 
@@ -41,7 +57,7 @@ namespace Lessons._04Lesson
         //}
         public override int GetHashCode()
         {
-            return GetHashCode();
+            return Value.GetHashCode();
         }
     }
 
@@ -56,12 +72,15 @@ namespace Lessons._04Lesson
 
     public class Tree : ITree<int>
     {
-        List<TreeNode<int>> lsNode = new();
+        Queue<TreeNode<int>> queNodes = new();
+        HashSet<TreeNode<int>> hsNodes = new();
         private TreeNode<int> root = null;
         private TreeNode<int> node = null;
 
         public void AddItem(int value)
         {
+            TreeNode<int> l_Node = null;
+            TreeNode<int> r_Node = null;
             if (root == null)
             {
                 root = new TreeNode<int>(value)
@@ -69,23 +88,42 @@ namespace Lessons._04Lesson
                     Parent = null,
                     //LeftChild = new TreeNode<int>(),
                     //RightChild = new(),
-                    Value = value
+                    //Value = value
                 };
                 node = root;
-                lsNode.Add(root);
+                hsNodes.Add(root);
+                queNodes.Enqueue(root);
                 return;
             }
-            else if (node.LeftChild != null)
+            else if (node.LeftChild == null)
             {
-                node.RightChild = new TreeNode<int>(value);
-                node.RightChild.Parent = root;
+
+                node.LeftChild = new TreeNode<int>(value);
+                node.LeftChild.Parent = root;
+                hsNodes.Add(node.LeftChild);
 
             }
-            else
+            else if (node.RightChild == null)
             {
-                node.LeftChild = new TreeNode<int>(value);
-                root.LeftChild.Parent = root;
+                node.RightChild = new TreeNode<int>(value);
+                root.RightChild.Parent = root;
+                hsNodes.Add(node.RightChild);
             }
+
+            if (node.LeftChild != null && node.RightChild != null)
+            {
+                node = node.LeftChild;
+                
+                foreach (TreeNode<int> items in hsNodes)
+                {
+                    if (items == null)
+                    {
+                        AddItem(value);
+                    }
+                }
+            }
+
+
 
 
             //lsNode.Add()
@@ -136,7 +174,7 @@ namespace Lessons._04Lesson
 
         public TreeNode<int> GetNodeByValue(int value)
         {
-            while (value !=)
+            while (value != 0)
             {
 
             }
