@@ -6,6 +6,7 @@
 //using Lessons._03Lesson;
 //using Lessons._04Lesson;
 using Lessons._05Lesson;
+using Lessons._06Lesson;
 
 namespace Lessons
 {
@@ -76,6 +77,9 @@ namespace Lessons
             new _04Lesson.Lesson04(); // le04
 
             //new task01(); 
+            new Lessons._06Lesson.task01(); // less06
+
+            new Lessons._07Lesson.task01();
         }
     }
 }
