@@ -12,7 +12,7 @@ namespace Lessons._07Lesson
         {
       
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\tПоиск количества путей для прямоугольника");
+                Console.WriteLine("\tПоиск количества путей в прямоугольнике");
                 Console.ResetColor();
                 Console.WriteLine();
 

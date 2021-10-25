@@ -142,7 +142,7 @@ namespace Lessons._04Lesson
             TreeNode<int> deqNode = new TreeNode<int>();
             var fail = new TreeNode<int>();
             var queue = new Queue<TreeNode<int>>();
-           
+
             if (hsNodes.Count < 2)
             {
                 queue.Enqueue(root);
@@ -184,38 +184,45 @@ namespace Lessons._04Lesson
                 //PrintStepQueue(queue);
                 level++;
 
-                //Node<int> newNode = null;
-                if (hsNodes.Count%2==0)
-                {
-                    node=hsNodes[0]
 
-                    if (deqNode.LeftChild != null)
-                    {
-                        queue.Enqueue(deqNode.LeftChild);
-                        hsNodes.Add(deqNode.LeftChild);
-                        continue;
-                    }
-                    if (deqNode.RightChild != null)
-                    {
-                        queue.Enqueue(deqNode.RightChild);
-                        hsNodes.Add(deqNode.RightChild);
-                        continue;
-                    }
-                }
-                    return null;
-                else
-                {
-                    var nl = n / 2;
-                    var nr = n - nl - 1;
-                    newNode = new Node<int>();
-                    newNode.Data = new Random().Next();
-                    newNode.Left = Tree(nl);
-                    newNode.Right = Tree(nr);
 
-                }
-                queue = new Queue<TreeNode<int>>(hsNodes);
+            }
+            queue = new Queue<TreeNode<int>>(hsNodes);
             Console.WriteLine("Искомый элемент не найден, поэтому возвращаем пустой элемент");
             return fail;
+        }
+
+        private void Example()
+        {
+            if (hsNodes.Count % 2 == 0)
+            {
+                //node=hsNodes[0]
+
+                if (deqNode.LeftChild != null)
+                {
+                    queue.Enqueue(deqNode.LeftChild);
+                    hsNodes.Add(deqNode.LeftChild);
+                    continue;
+                }
+                if (deqNode.RightChild != null)
+                {
+                    queue.Enqueue(deqNode.RightChild);
+                    hsNodes.Add(deqNode.RightChild);
+                    continue;
+                }
+            }
+            //return null;
+            else
+            {
+                TreeNode<int> newNode = null;
+                var nl = n / 2;
+                var nr = n - nl - 1;
+                newNode = new TreeNode<int>();
+                newNode.Value = new Random().Next();
+                newNode.Left = Tree(nl);
+                newNode.Right = Tree(nr);
+
+            }
         }
 
 #if false
