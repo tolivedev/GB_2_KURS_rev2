@@ -19,7 +19,7 @@ namespace Lessons._07Lesson
                 var place = InputPlacement();
                 SumOfPaths(place.Item1, place.Item2);
 
-                Console.Clear();
+                //Console.Clear();
             
 
             Console.ReadKey();
