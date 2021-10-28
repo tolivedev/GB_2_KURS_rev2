@@ -17,7 +17,7 @@ namespace Lessons._08Lesson
         ExternalBucket exBS = new();
 
         public delegate void Sort(int[] array);
-        static void PrintArray<T>(T[] array)        //печать массива для проверки корректности сортировок на малых массивах данных
+        void PrintArray<T>(T[] array)        //печать массива для проверки корректности сортировок на малых массивах данных
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
