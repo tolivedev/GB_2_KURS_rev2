@@ -83,6 +83,7 @@ namespace Lessons._04Lesson
         //Queue<TreeNode<int>> queNodes = new();
         //private TreeNode<int> node = null;
         int count = 0;
+        int level = 1;
 
         private TreeNode<int> root = null;
 

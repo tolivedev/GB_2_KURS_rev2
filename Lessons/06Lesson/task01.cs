@@ -8,7 +8,7 @@ namespace Lessons._06Lesson
 {
     class task01
     {
- 
+
         public task01()
         {
             Start();
@@ -41,18 +41,13 @@ namespace Lessons._06Lesson
         {
             Console.ForegroundColor = color;
             var res = do_search(graph, value);
-            Console.WriteLine();
-            Console.WriteLine($"Результат поиска вершины со значением {value} - {res.Value}");
+            Console.WriteLine($"\nРезультат поиска вершины со значением {value} - {res.Value}\n\n\n");
             Console.ResetColor();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
+
         }
         public Vertex BFS(Graph graph, int search_value)
         {
-            Console.WriteLine("                          Поиск в графе в ширину");
-            Console.WriteLine();
+            Console.WriteLine("\t\tПоиск в графе в ширину\n");
             Queue<Vertex> q = new Queue<Vertex>();
             Vertex vertex;
             HashSet<Vertex> used = new HashSet<Vertex>();         //запоминаем какие вершины уже прошли
@@ -61,7 +56,6 @@ namespace Lessons._06Lesson
             Console.WriteLine("Добавляем в очередь первую вершину со значением " + graph.Vertexes[0].Value);
             while (q.Count != 0)
             {
-
                 vertex = q.Dequeue();
                 used.Add(vertex);
                 Console.WriteLine("Удаляем из очереди вершину со значением " + vertex.Value);
@@ -93,8 +87,7 @@ namespace Lessons._06Lesson
 
         public Vertex DFS(Graph graph, int search_value)
         {
-            Console.WriteLine("                          Поиск в графе в глубину");
-            Console.WriteLine();
+            Console.WriteLine("\t\tПоиск в графе в глубину\n");
             Stack<Vertex> s = new Stack<Vertex>();
             Vertex vertex;
             HashSet<Vertex> used = new HashSet<Vertex>();         //запоминаем какие вершины уже прошли
