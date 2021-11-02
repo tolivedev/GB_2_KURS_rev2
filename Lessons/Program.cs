@@ -76,12 +76,12 @@ namespace Lessons
 
             //new _04Lesson.Lesson04(); // le04
 
-            //new task01(); 
+            new Lessons._05Lesson.task01();
             //new Lessons._06Lesson.task01(); // less06
 
             //new Lessons._07Lesson.task01(); // less07
 
-            new Lessons._08Lesson.task01(); //les08
+            //new Lessons._08Lesson.task01(); //les08
         }
     }
 }

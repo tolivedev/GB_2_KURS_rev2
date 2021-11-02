@@ -9,17 +9,17 @@ namespace Lessons._05Lesson
     public class Tree : ITree
     {
         public TreeNode root;
-        public List<TreeNode> tree = new List<TreeNode>(1);
+        public List<TreeNode> tree = new(10);
 
         public Tree(int valueRoot)
         {
             root = new TreeNode() { Value = valueRoot };
-            tree.Add(root);
+            tree.Add(null);
             tree.Add(root);
         }
         public void AddItem(int value)
         {
-            for (int i = 1; i < tree.Count; i++)         //ищем есть ли пропуски в массиве, если есть вставляем элемент в него
+            for (int i = 1; i < tree.Count; i++)   //проверка на нулевые значения, true - заменяем
             {
                 if (tree[i].Value == 0)
                 {
@@ -36,27 +36,26 @@ namespace Lessons._05Lesson
                     return;
                 }
             }
-            var newnode = new TreeNode() { Value = value };   //если в массиве пропусков нет, то добавляем в конец новый элемент
-            int n = tree.Count;
+            var newnode = new TreeNode() { Value = value };   //добавляем в конец новый элемент
+            int amountBefore = tree.Count;
             tree.Add(newnode);
-            newnode.Parent = tree[n / 2];
-            if (n % 2 == 0)
+            newnode.Parent = tree[amountBefore / 2];
+            if (amountBefore % 2 == 0)
             {
-                tree[n / 2].LeftChild = newnode;
+                tree[amountBefore / 2].LeftChild = newnode;
             }
             else
             {
-                tree[n / 2].RightChild = newnode;
+                tree[amountBefore / 2].RightChild = newnode;
             }
 
         }
 
         public TreeNode GetNodeByValue(int value)
         {
-            var res = new TreeNode();
-            var fail = new TreeNode();
-            var queue = new Queue<TreeNode>();
-            queue.Enqueue(tree[1]);                  //обходим дерево в ширину с помощью очереди в поисках нужного значения, если его нет, возвращаем пустой элемент
+            TreeNode res;
+            Queue<TreeNode> queue = new();
+            queue.Enqueue(tree[1]);    //обходим дерево в ширину в поисках искомого, иначе возвращаем пустой элемент
             while (queue.Count != 0)
             {
                 res = queue.Dequeue();
@@ -73,17 +72,17 @@ namespace Lessons._05Lesson
                     queue.Enqueue(res?.RightChild);
                 }
             }
-            return fail;
+            return new TreeNode();
         }
 
         public TreeNode GetRoot()
         {
-            return tree[1];              //т.к. дерево храним в листе, то его корень будет первым элементом в списке
+            return tree[1];
         }
 
         public void PrintTree(TreeNode tree, int depth)
         {
-            if (tree != null)                                              //рекурсивно обходим дерево, выводя его элементы по уровням
+            if (tree != null)  //рекурсивно выводим элементы по уровням
             {
                 PrintTree(tree.LeftChild, depth + 1);
                 for (int i = 0; i < depth; ++i) Console.Write("      ");

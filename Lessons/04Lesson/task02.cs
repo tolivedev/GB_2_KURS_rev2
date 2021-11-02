@@ -192,7 +192,7 @@ namespace Lessons._04Lesson
             Console.WriteLine("Искомый элемент не найден, поэтому возвращаем пустой элемент");
             return fail;
         }
-
+        /*
         private void Example()
         {
             if (hsNodes.Count % 2 == 0)
@@ -225,7 +225,7 @@ namespace Lessons._04Lesson
 
             }
         }
-
+        */
 #if false
         public void AddItem(int value)
         {
