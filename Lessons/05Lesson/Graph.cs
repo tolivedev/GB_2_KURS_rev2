@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lessons._05Lesson
 {
+#if false
     class Graph<T>
     {
 
@@ -35,4 +36,5 @@ namespace Lessons._05Lesson
             }
         }
     }
+#endif
 }
